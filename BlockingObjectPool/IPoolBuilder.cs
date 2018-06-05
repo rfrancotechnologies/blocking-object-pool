@@ -23,7 +23,7 @@ namespace BlockingObjectPool
     /// and the way to create and destroy the objects contained in the pool.
     /// </summary>
     /// <typeparam name="T">The type of the object contained in the pool.</typeparam>
-    public interface IPoolDescriptor<T> where T : class
+    public interface IPoolBuilder<T> where T : class
     {
         /// <summary>
         /// Sets the initial size of the object pool. If this method is not called before a pool
@@ -31,7 +31,7 @@ namespace BlockingObjectPool
         /// </summary>
         /// <param name="initialSize">The value.</param>
         /// <returns>The pool descriptor with updated initial size.</returns>
-        IPoolDescriptor<T> InitialSize(int initialSize);
+        IPoolBuilder<T> InitialSize(int initialSize);
 
         /// <summary>
         /// Sets the maximum size of the object pool. If this method is not called before a pool is 
@@ -40,21 +40,21 @@ namespace BlockingObjectPool
         /// </summary>
         /// <param name="maxSize">The value.</param>
         /// <returns>The pool descriptor with updated maximum size.</returns>
-        IPoolDescriptor<T> MaxSize(int maxSize);
+        IPoolBuilder<T> MaxSize(int maxSize);
 
         /// <summary>
         /// Defines the factory for creating and destroying the pooled objects.
         /// </summary>
         /// <param name="factory">The object factory.</param>
         /// <returns>The pool descriptor with updated factory.</returns>
-        IPoolDescriptor<T> WithFactory(IPooledObjectFactory<T> factory);
+        IPoolBuilder<T> WithFactory(IPooledObjectFactory<T> factory);
 
         /// <summary>
         /// Optional, objects validator. If not set, or null a default implementation will be used. The default implementation makes no validation at all.
         /// </summary>
         /// <param name="validator">The validator to use with the configured object pool</param>
         /// <returns>The pool descriptor with updated factory.</returns>
-        IPoolDescriptor<T> WithValidator(IPooledObjectValidator<T> validator);
+        IPoolBuilder<T> WithValidator(IPooledObjectValidator<T> validator);
 
         /// <summary>
         /// Sets the limit of attempts to acquire an if, internally, acquired objects are invalid after tested with the configured <see cref="IPooledObjectValidator{T}"/>.
@@ -63,7 +63,7 @@ namespace BlockingObjectPool
         /// </summary>
         /// <param name="acquiredInvalidLimit">The value.</param>
         /// <returns>The pool descriptor with updated maximum size.</returns>
-        IPoolDescriptor<T> AcquiredInvalidLimit(int acquiredInvalidLimit);
+        IPoolBuilder<T> AcquiredInvalidLimit(int acquiredInvalidLimit);
 
         /// <summary>
         /// Instantiate the object pool.

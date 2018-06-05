@@ -17,7 +17,7 @@ using System;
 
 namespace BlockingObjectPool
 {
-    public class PoolBuilder<T> : IPoolDescriptor<T> where T : class
+    public class PoolBuilder<T> : IPoolBuilder<T> where T : class
     {
         private int initialSize;
         private int maxSize;
@@ -30,7 +30,7 @@ namespace BlockingObjectPool
             maxSize = -1;
         }
 
-        public IPoolDescriptor<T> InitialSize(int initialSize)
+        public IPoolBuilder<T> InitialSize(int initialSize)
         {
             if (initialSize < 0)
             {
@@ -40,7 +40,7 @@ namespace BlockingObjectPool
             return this;
         }
 
-        public IPoolDescriptor<T> MaxSize(int maxSize)
+        public IPoolBuilder<T> MaxSize(int maxSize)
         {
             if (maxSize < -1)
             {
@@ -54,19 +54,19 @@ namespace BlockingObjectPool
             return this;
         }
 
-        public IPoolDescriptor<T> WithFactory(IPooledObjectFactory<T> factory)
+        public IPoolBuilder<T> WithFactory(IPooledObjectFactory<T> factory)
         {
             objectFactory = factory;
             return this;
         }
 
-        public IPoolDescriptor<T> WithValidator(IPooledObjectValidator<T> validator)
+        public IPoolBuilder<T> WithValidator(IPooledObjectValidator<T> validator)
         {
             this.validator = validator;
             return this;
         }
 
-        public IPoolDescriptor<T> AcquiredInvalidLimit(int acquiredInvalidLimit)
+        public IPoolBuilder<T> AcquiredInvalidLimit(int acquiredInvalidLimit)
         {
             this.acquiredInvalidLimit = acquiredInvalidLimit;
             return this;

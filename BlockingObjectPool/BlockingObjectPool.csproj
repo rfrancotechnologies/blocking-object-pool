@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard1.4;net4.5</TargetFrameworks>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <PackageId>BlockingObjectPool</PackageId>
     <Title>BlockingObjectPool</Title>
     <Description>.NET blocking, light weight, thread safe object pool.</Description>
@@ -13,6 +13,7 @@
     <IncludeSource>false</IncludeSource>
     <PackageReleaseNotes>
       First release including: thread safety, configurable maximum pool size, blocking of consumers when pool size is exceeded, optional validation of pooled objects in order to invalidate and re-created when they become stale.
+      Fix in PoolBuilder interface.
     </PackageReleaseNotes>
   </PropertyGroup>
 </Project>
