@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.4;net4.5</TargetFrameworks>
+    <Version>0.1.0</Version>
+    <PackageId>BlockingObjectPool</PackageId>
+    <Title>BlockingObjectPool</Title>
+    <Description>.NET blocking, light weight, thread safe object pool.</Description>
+    <Authors>rubms;mediatechsolutions</Authors>
+    <Copyright>Copyright Mediatech Solutions 2018</Copyright>
+    <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0.html</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/mediatechsolutions/blocking-object-pool</PackageProjectUrl>
+    <PackageTags>Object Pool Blocking</PackageTags>
+    <IncludeSource>false</IncludeSource>
+    <PackageReleaseNotes>
+      First release including: thread safety, configurable maximum pool size, blocking of consumers when pool size is exceeded, optional validation of pooled objects in order to invalidate and re-created when they become stale.
+    </PackageReleaseNotes>
+  </PropertyGroup>
+</Project>
