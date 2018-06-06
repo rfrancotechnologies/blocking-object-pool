@@ -12,8 +12,7 @@
     <PackageTags>Object Pool Blocking</PackageTags>
     <IncludeSource>false</IncludeSource>
     <PackageReleaseNotes>
-      First release including: thread safety, configurable maximum pool size, blocking of consumers when pool size is exceeded, optional validation of pooled objects in order to invalidate and re-created when they become stale.
-      Fix in PoolBuilder interface.
+      First release including: thread safety, configurable maximum pool size, blocking of consumers when pool size is exceeded, optional validation of pooled objects in order to invalidate and re-created when they become stale. Fix in PoolBuilder interface.
     </PackageReleaseNotes>
   </PropertyGroup>
 </Project>
