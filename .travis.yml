@@ -5,3 +5,6 @@ script:
  - dotnet restore
  - cd BlockingObjectPool
  - dotnet build -f netstandard1.4
+ - cd ../BlockingObjectPool.Tests
+ - dotnet build
+ - dotnet test
