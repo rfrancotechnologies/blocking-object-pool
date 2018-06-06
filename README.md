@@ -8,8 +8,8 @@
 
 BlockingObjectPool is a work derived from https://github.com/yanggujun/commonsfornet, more specifically https://github.com/yanggujun/commonsfornet/wiki/Commons.Pool, also released under Apache 2.0 license. The main reasons to fork the project are:
 
-* [Commons.Pool](https://github.com/yanggujun/commonsfornet/wiki/Commons.Pool) has not been maintained sin February 2017.
-* It is not correctly packaged and requires dependencies that have to be manually managed.
+* [Commons.Pool](https://github.com/yanggujun/commonsfornet/wiki/Commons.Pool) has not been maintained since February 2017.
+* It is not correctly packaged and it requires dependencies that have to be manually managed.
 
 ## Why BlockingObjectPool
 
