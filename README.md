@@ -30,6 +30,7 @@ BlockingObjectPool is packed with the following features:
 * Absolute freedom in the type of objects that can be stored and how they are created and destroyed.
 * Blocking of clients when no objects are available in the pool.
 * Configurable validation when objects are acquired from or returned to the pool. Objects that fail to validate are invalidated and re-created.
+* Optional timeout in the blocking when objects are not available for some time.
 
 ## Installation
 
@@ -51,7 +52,7 @@ BlockingObjectPool has no external dependencies.
 
 BlockingObjectPool provides a builder, `PoolBuilder`, that allows to build new object pools. On pool creation it is possible to specify an initial size, a maximum size, a factory for pooled objects and a pooled object validator. The pooled object validator is optional (if not provided, pooled objects will not be validated with acquired from or returned to the pool).
 
-Objects can be acquired from the pool via `Acquire()` and returned to the pool via `Return()`.
+Objects can be acquired from the pool via `Acquire()` and returned to the pool via `Return()`. 
 
 When the pool is no longer needed `IObjectPool::Dispose()` will free it and all the pooled objects in it.
 
@@ -130,4 +131,16 @@ class ExpensiveObjectValidator : IPooledObjectValidator<IExpensiveObject>
         ... // Check the object is valid and can still be used.
     }
 }
+```
+
+It is also possible to specifiy a timeout when acquiring objects, in order to prevent an infinite wait, via `TryAcquire()`:
+```csharp
+    MyClass acquiredObject;
+    // Will return false if no object is available in 500 milliseconds
+    if (pool.TryAcquire(500, out acquiredObject) 
+    {
+        acquiredObject.DoStuff();
+    }
+    else
+    ....
 ```
